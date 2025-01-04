@@ -224,4 +224,17 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         expect(body).to.include('CAC TAT')
       })
   })
+
+  it.only('desafio easter egg: encontra o gato escondido', function () { 
+    cy.get('#cat')
+      .should('not.be.visible')
+      .invoke('show')
+      .should('be.visible')
+    
+    cy.get('#title')
+    .invoke('text', 'CAT TAT')
+
+    cy.get('#subtitle')
+    .invoke('text', 'Parabéns por ter finalizado este curso!')
+  })
 })
